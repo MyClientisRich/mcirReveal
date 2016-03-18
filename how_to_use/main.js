@@ -5,7 +5,6 @@ $(document).ready(function() {
 	}
 
 	var firstSettings = {
-		trigger: $(".page__grid"),
 		element: $(".page__grid .page__children"),
 		stagger: true,
 		offset: 150,
@@ -13,7 +12,6 @@ $(document).ready(function() {
 	};
 
 	var secondSettings = {
-		trigger: $(".informations-block"),
 		element: $(".informations-block .rightPart div"),
 		stagger: true,
 		offset: -150,
@@ -23,8 +21,8 @@ $(document).ready(function() {
 
 	$(window).scroll($.throttle( 250, function() {
 
-		mcirReveal(firstSettings);
-		mcirReveal(secondSettings);
+		$(".page__grid").mcirReveal(firstSettings);
+		$(".informations-block").mcirReveal(firstSettings);
 
 	}));
 

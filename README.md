@@ -5,7 +5,6 @@ Un plugin pour faire de l'animation au scroll, easy biscuit.
 Un exemple concret est disponible dans le dossier how_to_use.
 
 # Paramètres disponibles
-REQUIRED trigger (selector) : L'élément qui déclenche l'animation
 
 element (selector) : L'élément qui se verra animé
 
