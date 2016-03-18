@@ -16,4 +16,4 @@ offset (int) : Par défaut, la ligne de détection est tout en bas de l'élémen
 
 disable_breakpoint (int) : Un breakpoint à partir duquel tout cela est désactivé.
 
-REQUIRED animFn (function) : La fonction qui défini de quelle manière l'élément sera montré. Du simple add/remove class jusqu'à TweenMax si nécessaire.
+animFn (function) : La fonction qui défini de quelle manière l'élément sera montré. Du simple add/remove class jusqu'à TweenMax si nécessaire.
