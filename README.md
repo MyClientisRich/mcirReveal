@@ -4,6 +4,19 @@ Un plugin pour faire de l'animation au scroll, easy biscuit.
 # Utilisation
 Un exemple concret est disponible dans le dossier how_to_use.
 
+```javascript
+
+var options = {
+	anim: animFn,
+	stagger: true,
+	element: $(".element")
+};
+
+$(window).scroll( $.throttle(function() {
+	$(".trigger").mcirReveal(options);	
+}));
+```
+
 # Paramètres disponibles
 
 element (selector) : L'élément qui se verra animé

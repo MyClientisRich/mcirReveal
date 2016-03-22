@@ -35,59 +35,26 @@
  				$this.addClass("active");
  			}
  		}, $settings);
-			
-		if($this.offset() == undefined || $this == undefined) {
-			return;
-		}
 
-		if($settings['animFn'] == undefined || typeof $settings['animFn'] !== "function") {
-			return;
-		}
+ 		if($this.offset() == undefined || $this == undefined) {
+ 			return;
+ 		}
 
-		if($settings['disable_breakpoint'] == undefined) {
-			$settings['disable_breakpoint'] = 20000;
-		}
+ 		if($settings['animFn'] == undefined || typeof $settings['animFn'] !== "function") {
+ 			return;
+ 		}
 
-		if($(window).width() <= $settings['disable_breakpoint']) {
-
-			/*
-			** If no element inputed, element is the same as trigger.
-			*/
-			if($settings['element'] == undefined) {
-				$settings['element'] = $this;
-
-				if($settings['element'].offset() == undefined) {
-					return;
-				}
-			}
-
-			/*
-			** Default stagger delay is 250ms.
-			*/
-
-			if($settings['stagger_delay'] == undefined) {
-				$settings['stagger_delay'] = 250;
-			}
-
-			/*
-			** If no offset inputed, offset is 0.
-			*/
-			if($settings['offset'] == undefined) {
-				$settings['offset'] = 0;
-			}
-			
+ 		if($(window).width() <= $settings['disable_breakpoint']) {
 			/*
 			** As long as locked is false, we keep trying.
 			** Locked is a data attribute that is set to true whenever the animation cycle is complete. It prevents the script from running for no reason.
 			*/
 			if($this.data("locked") !== "true") {
-				var currentScroll = ($(window).scrollTop() + $(window).height()) - $settings['offset'],
-				triggerOffset = $this.offset().top;
 
 				/*
 				** If in viewport..
 				*/
-				if(currentScroll >= triggerOffset) {
+				if(($(window).scrollTop() + $(window).height() - $settings['offset']) >= $this.offset().top) {
 					/*
 					** If stagger is true
 					*/
@@ -110,9 +77,6 @@
 								}, staggerDelay);
 								staggerDelay += $settings['stagger_delay'];
 								if(i == (nbIterations - 1)) {
-									/*
-									** From this point on, nothing else than the listener will run.
-									*/
 									$this.data("locked", "true");
 								}
 							}
@@ -122,9 +86,6 @@
 						** Else we simply show element.
 						*/
 						$settings['animFn']($settings['element']);
-						/*
-						** From this point on, nothing else than the listener will run.
-						*/
 						$this.data("locked", "true");
 					}
 				}
