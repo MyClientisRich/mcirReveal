@@ -29,7 +29,7 @@
  			stagger: false,
  			stagger_delay: 250,
  			offset: 0,
- 			disable_breakpoint: 20000,
+ 			disable_breakpoint: 0,
  			animFn: function() {
  				console.log("%cMCIR_REVEAL — You better use a custom function though.", "color: red;");
  				$this.addClass("active");
@@ -44,7 +44,7 @@
  			return;
  		}
 
- 		if($(window).width() <= $settings['disable_breakpoint']) {
+ 		if($(window).width() >= $settings['disable_breakpoint']) {
 			/*
 			** As long as locked is false, we keep trying.
 			** Locked is a data attribute that is set to true whenever the animation cycle is complete. It prevents the script from running for no reason.
